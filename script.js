@@ -11,17 +11,17 @@ let screenPrice = prompt(
   "введите число"
 );
 screenPrice = parseInt(screenPrice) ? parseInt(screenPrice) : 0;
-let adaptive = confirm("Нужен ли адаптив на сайте?");
-let name1 = prompt("Какой дополнительный тип услуги нужен?");
+const adaptive = confirm("Нужен ли адаптив на сайте?");
+const name1 = prompt("Какой дополнительный тип услуги нужен?");
 let price1 = prompt("Сколько это будет стоить?");
 price1 = parseInt(price1) ? parseInt(price1) : 0;
-let name2 = prompt("Какой дополнительный тип услуги нужен?");
+const name2 = prompt("Какой дополнительный тип услуги нужен?");
 let price2 = prompt("Сколько это будет стоить?");
 price2 = parseInt(price2) ? parseInt(price2) : 0;
-let fullPrice = screenPrice + price1 + price2;
+const fullPrice = screenPrice + price1 + price2;
 const rollback = Math.floor(Math.random() * 100 + 1); //откат посреднику
 console.log("случайный откат = " + rollback);
-let servicePercentPrice = fullPrice - rollback;
+const servicePercentPrice = fullPrice - rollback;
 console.log("итоговая стоимость " + servicePercentPrice);
 switch (true) {
   case fullPrice >= 30000:
