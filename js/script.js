@@ -1,17 +1,21 @@
 "use strict";
 //Это Урок №9 основное задание
 const title = document.getElementsByTagName("h1")[0];
-const handlerBtn = document.getElementsByClassName("handler_btn");
+const handlerBtnStart = document.getElementsByClassName("handler_btn")[0];
+const handlerBtnReset = document.getElementsByClassName("handler_btn")[1];
 const screenBtn = document.querySelector(".screen-btn");
 const otherItemsPercent = document.querySelectorAll(".other-items.percent");
 const otherItemsNumber = document.querySelectorAll(".other-items.number");
 const inputTypeRange = document.querySelector(".rollback input[type='range']");
 const spanTypeRange = document.querySelector(".rollback .range-value");
-const arrayTotalInput = document.getElementsByClassName("total-input");
-let arrayScreen = document.querySelectorAll(".screen");
-for (let i = 0; i < arrayTotalInput.length; i++) {
-  console.log(arrayTotalInput[i]);
-}
+const totalInput_0 = document.getElementsByClassName("total-input")[0];
+const totalInput_1 = document.getElementsByClassName("total-input")[1];
+const totalInput_2 = document.getElementsByClassName("total-input")[2];
+const totalInput_3 = document.getElementsByClassName("total-input")[3];
+const totalInput_4 = document.getElementsByClassName("total-input")[4];
+let screen = document.querySelectorAll(".screen")[0];
+
+console.log(screen);
 
 const appData = {
   title: "",
