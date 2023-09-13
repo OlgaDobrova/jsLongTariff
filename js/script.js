@@ -53,7 +53,11 @@ const appData = {
       appData.showResult(); //Вывод результатов на страницу
     } else {
       alert(
-        "Обязательно должен быть выбран хотя бы один тип экрана в выпадающем списке и введено количество таких экранов, отличное от нуля!"
+        "Ошибка!" +
+          "\n" +
+          "В блоке Расчет по типу экрана все поля должены быть заполнены!" +
+          "\n" +
+          "Количество экранов должно быть отлично от нуля!"
       );
     }
   },
@@ -89,9 +93,23 @@ const appData = {
           name: selectName,
           price: +select.value * +input.value,
           count: input.value,
+          isError: false,
+        });
+      } else {
+        appData.screens.push({
+          id: index,
+          name: selectName,
+          price: +select.value * +input.value,
+          count: input.value,
+          isError: true,
         });
       }
     });
+    for (let screen of appData.screens) {
+      if (screen.isError == true) {
+        appData.screens = [];
+      }
+    }
   },
   addServices: function () {
     appData.servicesPercent = {};
@@ -126,8 +144,10 @@ const appData = {
     appData.servicePricesPercent = 0;
 
     for (let screen of appData.screens) {
-      appData.screenPrice += +screen.price;
-      appData.screenCount += +screen.count;
+      if (screen.isError == false) {
+        appData.screenPrice += +screen.price;
+        appData.screenCount += +screen.count;
+      }
     }
 
     for (let key in appData.servicesNumber) {
