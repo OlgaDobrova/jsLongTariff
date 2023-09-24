@@ -1,17 +1,18 @@
 "use strict";
 
-const surname = document.getElementById("surname");
-const myname = document.getElementById("name");
+const surname = document.getElementById("surname"); //Фамилия
+const myname = document.getElementById("name"); //Имя
 const patronymic = document.getElementById("patronymic"); //Отчество
 const jobTitle = document.getElementById("job-title"); //должность
-const inputCheckbox = document.querySelector('input[type="checkbox"]');
+const inputCheckbox = document.querySelector('input[type="checkbox"]'); //образование
 const institution = document.getElementById("institution"); //Учебное заведение
 const speciality = document.getElementById("speciality"); //Специальность
 const submit = document.getElementById("submit");
 
 const tbody = document.querySelector("table tbody");
-const deleteBtn = document.querySelector(".delete-btn");
+// const deleteBtn = document.querySelector(".delete-btn");
 
+//Родительский класс - учитель
 class Teacher {
   constructor(surname, myname, patronymic, institution, speciality) {
     this.surname = surname;
@@ -48,18 +49,16 @@ class Informatics extends Teacher {
 }
 
 const appData = {
-  jobTitle: "",
-  hoursPerWeek: 0,
-  surname: "",
-  myname: "",
-  patronymic: "",
-  institution: "",
-  speciality: "",
-  teacher: {},
-  teacherArray: [],
+  jobTitle: "", //должность из select
+  teacher: {}, //объект - учитель
+  teacherArray: [], // массив объектов - все учителя
   init: function () {
     const startMetodBind = this.start.bind(this);
 
+    if (localStorage.getItem("teacherArray") !== null) {
+      this.teacherArray = JSON.parse(localStorage.getItem("teacherArray"));
+      this.show();
+    }
     submit.addEventListener("click", startMetodBind);
   },
   start: function (event) {
@@ -100,6 +99,7 @@ const appData = {
     }
 
     this.teacherArray.push(this.teacher);
+    localStorage.setItem("teacherArray", JSON.stringify(this.teacherArray));
 
     surname.value = "";
     myname.value = "";
@@ -111,20 +111,23 @@ const appData = {
     this.show();
   },
   show: function () {
-    const tr = document.createElement("tr");
-    console.log(tr);
-    tbody.append(tr);
-    tr.innerHTML = `
-      <td>${this.teacher.jobTitle}</td>
-      <td>${this.teacher.hoursPerWeek}</td>
-      <td>${this.teacher.surname}</td>
-      <td>${this.teacher.myname}</td>
-      <td>${this.teacher.patronymic}</td>
-      <td></td>
-      <td>${this.teacher.institution}</td>
-      <td>${this.teacher.speciality}</td>
-      <td class="delete"><div class="delete-btn">-</div></td>
-      `;
+    tbody.innerHTML = "";
+    this.teacherArray.forEach(function (item, index) {
+      const tr = document.createElement("tr");
+
+      tbody.append(tr);
+      tr.innerHTML = `
+        <td>${item.jobTitle}</td>
+        <td>${item.hoursPerWeek}</td>
+        <td>${item.surname}</td>
+        <td>${item.myname}</td>
+        <td>${item.patronymic}</td>
+        <td></td>
+        <td>${item.institution}</td>
+        <td>${item.speciality}</td>
+        <td class="delete"><div class="delete-btn">-</div></td>
+        `;
+    });
   },
 };
 
