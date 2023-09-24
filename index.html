@@ -8,6 +8,54 @@
   <title>Document</title>
 </head>
 <body>
-  <!-- <img src="../image/screen.png"> -->
+  
+  <div class="wrapper">
+    <form action="">
+      <input type="text" id='surname' placeholder="Фамилия">
+      <input type="text" id='name' placeholder="Имя">
+      <input type="text" id='patronymic' placeholder="Отчество">
+      <select name="job-title" id="job-title">
+        <option value="">Выберите должность</option>
+        <option value="math">Учитель математики</option>
+        <option value="phys">Учитель физики</option>
+        <option value="inf">Учитель информатики</option>
+      </select>
+      <div class="main-controls__checkbox">
+        <input class="custom-checkbox" type="checkbox" name="education" id="checkbox-1">
+        <label for="checkbox-1">Высшее образование</label>
+      </div>
+      <input type="text" id='institution' placeholder="Учебное заведение">
+      <input type="text" id='speciality' placeholder="Специальность">
+      <button id="submit">Добавить</button>
+    </form>
+    <div class="wrapper-right">
+      <div class="title">Список преподавателей моей школы</div>
+      <table>
+        <tbody>
+          <tr>
+            <th>Предмет</th>
+            <th>Кол-во часов/нед.</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Высшее образование</th>
+            <th>Учебное заведение</th>
+            <th>Специальность</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="delete"><div class="delete-btn">-</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </body>
 </html>
