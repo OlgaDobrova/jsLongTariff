@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+.flight-field {
+  width: 886px;
+  height: 500px;
+  position: relative;
+  /* border: 1px solid red; */
+}
+img {
+  height: 100px;
+  position: absolute;
+  width: 80px;
+  height: 100px;
+  left: 800px;
+  top: 397px;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+button {
+  margin: 30px 0;
+}
