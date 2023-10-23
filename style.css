@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  background-color: #F0FFFF;
+}
+
+.container {
+  width: 97%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.title {
+  width: 100%;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+select {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAh0lEQVQ4T93TMQrCUAzG8V9x8QziiYSuXdzFC7h4AcELOPQAdXYovZCHEATlgQV5GFTe1ozJlz/kS1IpjKqw3wQBVyy++JI0y1GTe7DCBbMAckeNIQKk/BanALBB+16LtnDELoMcsM/BESDlz2heDR3WePwKSLo5eoxz3z6NNcFD+vu3ij14Aqz/DxGbKB7CAAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  background-position: 98% center;
+  border: 2px solid #A52A2A;
+  border-radius: 5px;
+  height: 36px;
+  width: 350px;
+  padding: 5px;
+  margin-bottom: 30px;
+}
+select:active,
+select:focus {
+    outline: none;
+}
+
+@media (max-width: 1200px) {
+  .container {
+      max-width: 900px;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+      max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+      max-width: 500px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+      max-width: 300px;
+  }
+}
